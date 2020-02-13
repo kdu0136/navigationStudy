@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2019, The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/registerNavi"
+    app:startDestination="@id/registerScreen">
+
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="com.example.android.navigationadvancedsample.homescreen.Title"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_title">
+        <action
+            android:id="@+id/homeToHome"
+            app:destination="@id/homeScreen"/>
+        <action
+            android:id="@+id/homeToLeader"
+            app:destination="@id/leaderBoardScreen"/>
+        <action
+            android:id="@+id/homeToRegister"
+            app:destination="@id/registerScreen"/>
+        <action
+            android:id="@+id/homeToRegistered"
+            app:destination="@id/registeredScreen"/>
+        <action
+            android:id="@+id/homeToAbout"
+            app:destination="@id/aboutScreen"/>
+        <argument
+            android:name="num"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/leaderBoardScreen"
+        android:name="com.example.android.navigationadvancedsample.listscreen.LeaderBoard"
+        android:label="@string/title_list"
+        tools:layout="@layout/fragment_leaderboard">
+        <action
+            android:id="@+id/leaderToHome"
+            app:destination="@id/homeScreen"/>
+        <action
+            android:id="@+id/leaderToLeader"
+            app:destination="@id/leaderBoardScreen"/>
+        <action
+            android:id="@+id/leaderToRegister"
+            app:destination="@id/registerScreen"/>
+        <action
+            android:id="@+id/leaderToRegistered"
+            app:destination="@id/registeredScreen"/>
+        <action
+            android:id="@+id/leaderToAbout"
+            app:destination="@id/aboutScreen"/>
+        <argument
+            android:name="num"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerScreen"
+        android:name="com.example.android.navigationadvancedsample.formscreen.Register"
+        android:label="@string/title_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/registerToHome"
+            app:destination="@id/homeScreen"/>
+        <action
+            android:id="@+id/registerToLeader"
+            app:destination="@id/leaderBoardScreen"/>
+        <action
+            android:id="@+id/registerToRegister"
+            app:destination="@id/registerScreen"/>
+        <action
+            android:id="@+id/registerToRegistered"
+            app:destination="@id/registeredScreen"/>
+        <action
+            android:id="@+id/registerToAbout"
+            app:destination="@id/aboutScreen"/>
+        <argument
+            android:name="num"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registeredScreen"
+        android:name="com.example.android.navigationadvancedsample.formscreen.Registered"
+        android:label="@string/title_registered"
+        tools:layout="@layout/fragment_registered">
+        <action
+            android:id="@+id/registeredToHome"
+            app:destination="@id/homeScreen"/>
+        <action
+            android:id="@+id/registeredToLeader"
+            app:destination="@id/leaderBoardScreen"/>
+        <action
+            android:id="@+id/registeredToRegister"
+            app:destination="@id/registerScreen"/>
+        <action
+            android:id="@+id/registeredToRegistered"
+            app:destination="@id/registeredScreen"/>
+        <action
+            android:id="@+id/registeredToAbout"
+            app:destination="@id/aboutScreen"/>
+        <argument
+            android:name="num"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutScreen"
+        android:name="com.example.android.navigationadvancedsample.homescreen.About"
+        android:label="@string/title_about"
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/aboutToHome"
+            app:destination="@id/homeScreen"/>
+        <action
+            android:id="@+id/aboutToLeader"
+            app:destination="@id/leaderBoardScreen"/>
+        <action
+            android:id="@+id/aboutToRegister"
+            app:destination="@id/registerScreen"/>
+        <action
+            android:id="@+id/aboutToRegistered"
+            app:destination="@id/registeredScreen"/>
+        <action
+            android:id="@+id/aboutToAbout"
+            app:destination="@id/aboutScreen"/>
+        <argument
+            android:name="num"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
