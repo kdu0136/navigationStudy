@@ -36,28 +36,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.android.navigationadvancedsample.BaseFragment
 import com.example.android.navigationadvancedsample.R
 
-class SharedViewModel: ViewModel() {
-    val dataToshare = MutableLiveData<String>()
-
-    fun updateDate(data: String) {
-        dataToshare.value = data
-    }
-}
-
 /**
  * Shows the main title screen with a button that navigates to [About].
  */
 class Title: BaseFragment() {
-    private lateinit var viewModel: SharedViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        viewModel = ViewModelProvider(activity!!).get(SharedViewModel::class.java)
-        viewModel.dataToshare.observe(this, Observer { data ->
-            Log.d("Nav", "${javaClass.simpleName} shared Data: $data")
-        })
-
-
 //        val callBack = object: OnBackPressedCallback(true) {
 //                override fun handleOnBackPressed() {
 //                    Log.d("Navi", "handleOnBackPressed")
@@ -84,10 +68,6 @@ class Title: BaseFragment() {
         }
         view.findViewById<Button>(R.id.aboutBtn).setOnClickListener {
             findNavController().navigate(R.id.homeToAbout, bundleOf("num" to fragNum + 1))
-        }
-
-        view.findViewById<TextView>(R.id.title).setOnClickListener {
-            viewModel.updateDate(data = javaClass.simpleName)
         }
 
         return view

@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 
 abstract class BaseFragment: Fragment() {
+    private lateinit var viewModel: SharedViewModel
+
     protected val fragNum
         get() = arguments?.getInt("num", 0) ?: 0
 
@@ -19,7 +23,14 @@ abstract class BaseFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("Test", "${javaClass.simpleName} onCreate $fragNum")
-        super.onCreate(savedInstanceState)
+
+        activity?.let {
+            viewModel = ViewModelProvider(it).get(SharedViewModel::class.java)
+            viewModel.beforFragmentStr.observe(this, Observer { data ->
+                Log.d("Nav", "${javaClass.simpleName} shared Data: $data")
+            })
+            super.onCreate(savedInstanceState)
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -64,6 +75,7 @@ abstract class BaseFragment: Fragment() {
 
     override fun onDestroy() {
         Log.d("Test", "${javaClass.simpleName} onDestroy $fragNum")
+        viewModel.endFragment(fragName = javaClass.simpleName)
         super.onDestroy()
     }
 

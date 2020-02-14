@@ -35,15 +35,6 @@ import com.example.android.navigationadvancedsample.R
  * Shows "About"
  */
 class About : BaseFragment() {
-    private lateinit var viewModel: SharedViewModel
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel = ViewModelProvider(activity!!).get(SharedViewModel::class.java)
-        viewModel.dataToshare.observe(this, Observer { data ->
-            Log.d("Nav", "${javaClass.simpleName} shared Data: $data")
-        })
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -64,10 +55,6 @@ class About : BaseFragment() {
         }
         view.findViewById<Button>(R.id.aboutBtn).setOnClickListener {
             findNavController().navigate(R.id.aboutToAbout, bundleOf("num" to fragNum + 1))
-        }
-
-        view.findViewById<TextView>(R.id.title).setOnClickListener {
-            viewModel.updateDate(data = javaClass.simpleName)
         }
 
         return view
