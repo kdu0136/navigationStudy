@@ -1,13 +1,8 @@
 package com.example.android.navigationadvancedsample
 
-import android.app.Activity
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.android.navigationadvancedsample.rx.SchedulerProvider
-import com.example.android.navigationadvancedsample.rx.with
-import io.reactivex.Observable
 
-class SharedViewModel: AbstractViewModel() {
+class SharedViewModel : AbstractViewModel() {
     val beforFragmentStr = MutableLiveData<String>()
 
     fun endFragment(fragName: String) {

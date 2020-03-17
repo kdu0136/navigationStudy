@@ -22,10 +22,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Rule
@@ -65,16 +62,16 @@ class DeepLinkTest {
 
     private fun assertInProfile() {
         onView(withText(userName))
-            .check(matches(isDisplayed()))
+                .check(matches(isDisplayed()))
     }
 
     private fun assertList() {
         onView(allOf(withText(R.string.title_list), isDescendantOfA(withId(R.id.action_bar))))
-            .check(matches(isDisplayed()))
+                .check(matches(isDisplayed()))
     }
 
     private fun assertInHome() {
         onView(withText(R.string.welcome))
-            .check(matches(isDisplayed()))
+                .check(matches(isDisplayed()))
     }
 }

@@ -31,7 +31,7 @@
     </style>
 
     <style name="customNoActionBarTheme" parent="AppTheme.NoActionBar">
-<!--        <item name="android:windowBackground">#FFFFFF</item>-->
+        <!--        <item name="android:windowBackground">#FFFFFF</item>-->
         <item name="colorPrimaryDark">#4A4A4A</item>
         <item name="colorAccent">#000000</item>
     </style>

@@ -1,8 +1,6 @@
 package com.example.android.navigationadvancedsample
 
 import androidx.annotation.CallSuper
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -10,7 +8,7 @@ import io.reactivex.disposables.Disposable
 /**
  * 뷰모델 가상 클래스
  */
-abstract class AbstractViewModel: ViewModel() {
+abstract class AbstractViewModel : ViewModel() {
     protected val viewModelTag = javaClass.simpleName
 
     private val disposable = CompositeDisposable() // 여러 disposable 객체를 관리할수 있는 CompositeDisposable 객체 (같은 이름 작업 처리 block)

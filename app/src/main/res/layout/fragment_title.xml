@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2019, The Android Open Source Project
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,8 +14,7 @@
   ~ limitations under the License.
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/title_constraint"
@@ -57,7 +55,7 @@
         app:layout_constraintBottom_toTopOf="@id/leaderBoardBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:id="@+id/leaderBoardBtn"
@@ -74,7 +72,7 @@
         app:layout_constraintBottom_toTopOf="@id/registerBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:id="@+id/registerBtn"
@@ -91,7 +89,7 @@
         app:layout_constraintBottom_toTopOf="@id/registeredBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:id="@+id/registeredBtn"
@@ -108,7 +106,7 @@
         app:layout_constraintBottom_toTopOf="@id/aboutBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp" />
 
     <Button
         android:id="@+id/aboutBtn"
@@ -125,6 +123,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

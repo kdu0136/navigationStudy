@@ -17,7 +17,6 @@
 package com.example.android.navigationadvancedsample
 
 import android.content.Intent
-import android.util.Log
 import android.util.SparseArray
 import androidx.core.util.forEach
 import androidx.core.util.set
@@ -34,11 +33,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
  * This sample is a workaround until the Navigation Component supports multiple back stacks.
  */
 fun BottomNavigationView.setupWithNavController(
-    navGraphIds: List<Int?>,
-    fragmentManager: FragmentManager,
-    containerId: Int,
-    intent: Intent,
-    nullNavTouchId: (Int) -> Unit
+        navGraphIds: List<Int?>,
+        fragmentManager: FragmentManager,
+        containerId: Int,
+        intent: Intent,
+        nullNavTouchId: (Int) -> Unit
 ): LiveData<NavController> {
 
     // Map of tags (key = graphId, value = fragmentTag
@@ -104,19 +103,19 @@ fun BottomNavigationView.setupWithNavController(
 //                            R.anim.nav_default_exit_anim,
 //                            R.anim.nav_default_pop_enter_anim,
 //                            R.anim.nav_default_pop_exit_anim)
-                        .attach(newSelectedFragment)
-                        .setPrimaryNavigationFragment(newSelectedFragment)
-                        .apply {
-                            // Detach all other Fragments
-                            graphIdToTagMap.forEach { _, fragmentTag ->
-                                if (fragmentTag != newlySelectedItemTag) {
-                                    fragmentManager.findFragmentByTag(firstFragmentTag)?.let { detach(it) }
+                            .attach(newSelectedFragment)
+                            .setPrimaryNavigationFragment(newSelectedFragment)
+                            .apply {
+                                // Detach all other Fragments
+                                graphIdToTagMap.forEach { _, fragmentTag ->
+                                    if (fragmentTag != newlySelectedItemTag) {
+                                        fragmentManager.findFragmentByTag(firstFragmentTag)?.let { detach(it) }
+                                    }
                                 }
                             }
-                        }
-                        .addToBackStack(firstFragmentTag)
-                        .setReorderingAllowed(true)
-                        .commit()
+                            .addToBackStack(firstFragmentTag)
+                            .setReorderingAllowed(true)
+                            .commit()
                 }
                 selectedItemTag = newlySelectedItemTag
                 isOnFirstFragment = selectedItemTag == firstFragmentTag
@@ -179,19 +178,19 @@ private fun BottomNavigationView.setupItemReselected(graphIdToTagMap: SparseArra
 
 private fun FragmentManager.detachNavHostFragment(navHostFragment: NavHostFragment) {
     this.beginTransaction()
-        .detach(navHostFragment)
-        .commitNow()
+            .detach(navHostFragment)
+            .commitNow()
 }
 
 private fun FragmentManager.attachNavHostFragment(navHostFragment: NavHostFragment, isPrimaryNavFragment: Boolean) {
     this.beginTransaction()
-        .attach(navHostFragment)
-        .apply {
-            if (isPrimaryNavFragment) {
-                setPrimaryNavigationFragment(navHostFragment)
+            .attach(navHostFragment)
+            .apply {
+                if (isPrimaryNavFragment) {
+                    setPrimaryNavigationFragment(navHostFragment)
+                }
             }
-        }
-        .commitNow()
+            .commitNow()
 
 }
 
@@ -203,8 +202,8 @@ private fun FragmentManager.obtainNavHostFragment(fragmentTag: String, navGraphI
     // Otherwise, create it and return it.
     val navHostFragment = NavHostFragment.create(navGraphId)
     this.beginTransaction()
-        .add(containerId, navHostFragment, fragmentTag)
-        .commitNow()
+            .add(containerId, navHostFragment, fragmentTag)
+            .commitNow()
     return navHostFragment
 }
 

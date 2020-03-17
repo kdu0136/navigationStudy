@@ -16,12 +16,8 @@
 
 package com.example.android.navigationadvancedsample
 
-import android.graphics.Color
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
-import android.view.Menu
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -60,10 +56,10 @@ class MainActivity : BaseActivity() {
 
         // Setup the bottom navigation view with a list of navigation graphs
         val controller = bottomNavigationView.setupWithNavController(
-            navGraphIds = navGraphIds,
-            fragmentManager = supportFragmentManager,
-            containerId = R.id.nav_host_container,
-            intent = intent
+                navGraphIds = navGraphIds,
+                fragmentManager = supportFragmentManager,
+                containerId = R.id.nav_host_container,
+                intent = intent
         ) { itemId ->
             Log.d("Test", "graph null navi btn touch")
 //            when (itemId) {

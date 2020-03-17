@@ -22,11 +22,7 @@ import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.NoActivityResumedException
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import org.hamcrest.CoreMatchers.allOf
 import org.junit.Assert.fail
@@ -36,9 +32,11 @@ import org.junit.Test
 
 class BottomNavigationTest {
 
-    @get:Rule var instantTaskExecutorRule = InstantTaskExecutorRule()
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    @get:Rule var activityTestRule = ActivityTestRule(MainActivity::class.java)
+    @get:Rule
+    var activityTestRule = ActivityTestRule(MainActivity::class.java)
 
     @Test
     fun bottomNavView_clickOnAllItems() {
@@ -106,7 +104,7 @@ class BottomNavigationTest {
         openThirdScreen()
 
         onView(withContentDescription(R.string.sign_up))
-            .perform(click())
+                .perform(click())
 
         // Assert it maintained the back stack
         assertDeeperThirdScreen()
@@ -119,7 +117,7 @@ class BottomNavigationTest {
         assertThirdScreen()
 
         onView(withContentDescription(R.string.sign_up))
-            .perform(click())
+                .perform(click())
 
         assertDeeperThirdScreen()
 

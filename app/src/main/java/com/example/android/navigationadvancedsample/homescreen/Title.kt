@@ -16,22 +16,12 @@
 
 package com.example.android.navigationadvancedsample.homescreen
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.fragment.findNavController
 import com.example.android.navigationadvancedsample.BaseFragment
 import com.example.android.navigationadvancedsample.R
@@ -39,7 +29,7 @@ import com.example.android.navigationadvancedsample.R
 /**
  * Shows the main title screen with a button that navigates to [About].
  */
-class Title: BaseFragment() {
+class Title : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        val callBack = object: OnBackPressedCallback(true) {
@@ -49,6 +39,7 @@ class Title: BaseFragment() {
 //        }
 //        requireActivity().onBackPressedDispatcher.addCallback(this, callBack)
     }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
